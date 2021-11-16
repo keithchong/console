@@ -31,9 +31,10 @@ import './GitOpsDetails.scss';
 interface GitOpsDetailsProps {
   envs: GitOpsEnvironment[];
   appName: string;
+  error: any;
 }
 
-const GitOpsDetails: React.FC<GitOpsDetailsProps> = ({ envs, appName }) => {
+const GitOpsDetails: React.FC<GitOpsDetailsProps> = ({ envs, appName, error }) => {
   const { t } = useTranslation();
   const [consoleLinks] = useK8sWatchResource<K8sResourceKind[]>({
     isList: true,
@@ -77,6 +78,10 @@ const GitOpsDetails: React.FC<GitOpsDetailsProps> = ({ envs, appName }) => {
     oldAPI = envs[0] && envs[0].deployments ? envs[0].deployments === null : true;
   }
 
+  let errMsg = '';
+  if (error != null) {
+    errMsg = t('gitops-plugin~Error cannot retrieve environments');
+  }
   const ArgoCDIcon =
     '/api/kubernetes/apis/packages.operators.coreos.com/v1/namespaces/openshift-marketplace/packagemanifests/argocd-operator/icon?resourceVersion=argocd-operator.alpha.argocd-operator.v0.0.14';
 
@@ -90,6 +95,17 @@ const GitOpsDetails: React.FC<GitOpsDetailsProps> = ({ envs, appName }) => {
             className="odc-gitops-details__operator-upgrade-alert"
           >
             {t('gitops-plugin~Compatibility Issue Message')}
+          </Alert>
+        </>
+      )}
+      {error != null && (
+        <>
+          <Alert
+            isInline
+            title={t('gitops-plugin~Error Encountered')}
+            className="odc-gitops-details__operator-upgrade-alert"
+          >
+            {errMsg}
           </Alert>
         </>
       )}

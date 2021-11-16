@@ -1,6 +1,7 @@
 {
   "Environments": "Environments",
   "Compatibility Issue": "Compatibility Issue",
+  "Error Encountered": "Error Encountered",
   "Compatibility Issue Message": "It is detected that an older version of the GitOps Operator is installed. Please upgrade the GitOps Operator",
   "Cluster URL not available": "Cluster URL not available",
   "{{message}}": "{{message}}",
@@ -33,5 +34,7 @@
   "Unknown": "Unknown",
   "No GitOps manifest URLs found": "No GitOps manifest URLs found",
   "No Application groups found": "No Application groups found",
+  "Error cannot retrieve applications": "Cannot retrieve applications. Ensure the Argo CD applications are available and check the log for the 'cluster' pod created by the GitOps Operator.",
+  "Error cannot retrieve environments": "Cannot retrieve environments. Ensure the Argo CD applications are available and check the log for the 'cluster' pod created by the GitOps Operator.",
   "Environment details were not found. Try reloading the page or contacting an administrator.": "Environment details were not found. Try reloading the page or contacting an administrator."
 }
