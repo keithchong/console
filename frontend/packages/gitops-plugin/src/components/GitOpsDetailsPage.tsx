@@ -12,6 +12,7 @@ type GitOpsOverviewPageProps = {
     emptyStateMsg: string;
     envs: string[];
     applicationBaseURI: string;
+    manifestURL: string;
   };
 };
 type GitOpsDetailsPageProps = RouteComponentProps<{ appName?: string }> & GitOpsOverviewPageProps;
@@ -20,7 +21,7 @@ const GitOpsDetailsPage: React.FC<GitOpsDetailsPageProps> = (props) => {
   const { appName } = props.match.params;
   const environmentBaseURI = `/api/gitops/environments`;
   const environmentBaseURIV2 = `/api/gitops/environment`;
-  const { envs, emptyStateMsg, applicationBaseURI } = props.customData;
+  const { envs, emptyStateMsg, applicationBaseURI, manifestURL } = props.customData;
   const [error, setError] = React.useState<Error>(null);
 
   React.useEffect(() => {
@@ -48,7 +49,7 @@ const GitOpsDetailsPage: React.FC<GitOpsDetailsPageProps> = (props) => {
       {!envsData ? (
         <LoadingBox />
       ) : !emptyStateMsg ? (
-        <GitOpsDetails envs={envsData} appName={appName} error={error} />
+        <GitOpsDetails envs={envsData} appName={appName} manifestURL={manifestURL} error={error} />
       ) : (
         <GitOpsEmptyState emptyStateMsg={emptyStateMsg} />
       )}

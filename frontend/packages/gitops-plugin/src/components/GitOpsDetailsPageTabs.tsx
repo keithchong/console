@@ -58,7 +58,7 @@ export const GitOpsDetailsPageTabs: React.FC<GitOpsDetailsPageTabsProps> = ({
         <HorizontalNav
           pages={pages}
           match={match}
-          customData={{ emptyStateMsg, envs, applicationBaseURI, location }}
+          customData={{ emptyStateMsg, envs, applicationBaseURI, manifestURL, location }}
           noStatusBox
         />
       )}
