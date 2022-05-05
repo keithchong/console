@@ -8,4 +8,10 @@
   h1 {
     margin-bottom: var(--pf-global--spacer--sm);
   }
+
+  .gop-gitops-details-page-title {
+    margin-bottom: 20px;
+  }
+
+  border-bottom: var(--pf-global--BorderWidth--sm) solid var(--pf-global--BorderColor--100);
 }
