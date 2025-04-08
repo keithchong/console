@@ -444,5 +444,33 @@
       "name": "%plugin__console-demo-plugin~Example Namespaced Page%",
       "href": "/example-namespaced-page"
     }
+  },
+  {
+    "type": "console.topology/data/factory",
+    "properties": {
+      "id": "gitops-rollouts-topology-data-factory-dynamic-plugin",
+      "priority": "300",
+      "resources": {
+        "rollouts": {
+          "model": {
+            "group": "argoproj.io",
+            "version": "v1alpha1",
+            "kind": "Rollout"
+          },
+          "opts": { "isList": true, "optional": true, "namespaced": true }
+        }
+      },
+      "getDataModel": {
+        "$codeRef": "topology.getRolloutTopologyDataModel"
+      }
+    }
+  },
+  {
+    "type": "console.topology/component/factory",
+    "properties": {
+      "getFactory": {
+        "$codeRef": "topology.getRolloutComponentFactory"
+      }
+    }
   }
 ]

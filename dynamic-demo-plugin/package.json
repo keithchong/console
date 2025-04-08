@@ -16,10 +16,12 @@
   "devDependencies": {
     "@openshift-console/dynamic-plugin-sdk": "file:../frontend/packages/console-dynamic-plugin-sdk/dist/core",
     "@openshift-console/dynamic-plugin-sdk-webpack": "file:../frontend/packages/console-dynamic-plugin-sdk/dist/webpack",
+    "@openshift-console/dynamic-plugin-sdk-internal": "file:../frontend/packages/console-dynamic-plugin-sdk/dist/internal",
     "@openshift-console/plugin-shared": "file:../frontend/packages/console-plugin-shared/dist",
     "@patternfly/react-core": "^6.2.0-prerelease.34",
     "@patternfly/react-icons": "^6.2.0-prerelease.12",
     "@patternfly/react-table": "^6.2.0-prerelease.35",
+    "@patternfly/react-topology": "^6.1.0",
     "@types/react": "16.8.13",
     "@types/react-router": "^5.1.20",
     "@types/react-router-dom": "5.3.x",
@@ -70,6 +72,7 @@
       "projectOverviewInventory": "./components/ProjectOverview/Inventory",
       "projectOverview": "./utils/project-overview",
       "modalPage": "./components/Modals/ModalPage",
+      "topology": "./components/topology",
       "sampleErrorBoundaryPage": "./components/ErrorBoundary/SampleErrorBoundaryPage",
       "createProjectModal": "./components/Modals/CreateProjectModal"
     },
